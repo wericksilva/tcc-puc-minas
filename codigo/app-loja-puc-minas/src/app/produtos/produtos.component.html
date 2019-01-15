@@ -1,0 +1,24 @@
+<!-- INíCIO do CONTEÚDO -->
+<section class="content-header">
+  <h1>
+    Todos os Produtos
+  </h1>
+</section>
+
+
+<section class="content">
+
+  <div class="row">
+    <div *ngFor="let produto of produtos" class="col-sm-6 col-xs-12" >
+      
+      <mt-produto [produto]="produto"></mt-produto>
+      
+    </div>
+   
+
+
+  </div>
+
+
+
+</section>
