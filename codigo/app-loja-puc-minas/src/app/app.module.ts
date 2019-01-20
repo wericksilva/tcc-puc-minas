@@ -12,6 +12,8 @@ import { AboutComponent } from './about/about.component';
 import { ProdutosComponent } from './produtos/produtos.component';
 import { ProdutoComponent } from './produtos/produto/produto.component';
 import { ProdutosService } from './produtos/produtos.service';
+import { ProdutoDetalheComponent } from './produto-detalhe/produto-detalhe.component';
+import { CarrinhoComponent } from './produto-detalhe/carrinho/carrinho.component';
 
 
 
@@ -23,6 +25,8 @@ import { ProdutosService } from './produtos/produtos.service';
     AboutComponent,
     ProdutosComponent,
     ProdutoComponent,
+    ProdutoDetalheComponent,
+    CarrinhoComponent,
   ],
   imports: [
     BrowserModule,
