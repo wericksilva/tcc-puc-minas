@@ -1,16 +1,89 @@
-<!-- INÍCIO DO CONTEÚDO -->
-<section class="content-header">
-  </section>
+<!-- INíCIO do CONTEÚDO -->
+<section class="content-header" style="margin-top: 15px">
 
-  <section class="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-24">
 
-    <div class="jumbotron welcome-jumbotron">
-       <h1>Bem vindo ao Vendas Puc!</h1>
-       <p>
-        Ache ja seu produto.
-       </p>
-       <a class="btn btn-primary btn-lg"  [routerLink]="['/produtos']" routerLinkActive="router-link-active"  >ver promoções</a>
+                <div id="imageCarousel" class="carousel slide" data-interval="3000"
+                     data-ride="carousel" data-pause="hover" data-wrap="true">
+
+                    <ol class="carousel-indicators">
+                        <li data-target="#imageCarousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#imageCarousel" data-slide-to="1"></li>
+                        <li data-target="#imageCarousel" data-slide-to="2"></li>
+                    </ol>
+
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <div class="row">
+                                <div class="col-xs-16">
+                                    <img src="assets/img/promocoes/smartphone.png" class="img-responsive">
+                                   
+                                </div>
+                                
+                            </div>
+                        </div>
+
+                        <div class="item">
+                            <div class="row">
+                                <div class="col-xs-16">
+                                    <img src="assets/img/promocoes/notebook.png " class="img-responsive">
+                                    
+                                </div>
+                               
+                            </div>
+                        </div>
+
+                        <div class="item">
+                            <div class="row">
+                                <div class="col-xs-16">
+                                    <img src="assets/img/promocoes/tv.png" class="img-responsive">
+                                    
+                                </div>
+                              
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <a href="#imageCarousel" class="carousel-control left" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                    </a>
+                    <a href="#imageCarousel" class="carousel-control right" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                    </a>
+                </div>
+
+            </div>
+        </div>
     </div>
+   
+  <div>
+    <h1>
+      Todos os Produtos
+    </h1>
+  </div>
 
-  </section>
-  <!-- FIM DO CONTEÚDO -->
+
+</section>
+
+
+<section class="content">
+  
+
+  <div class="row">
+    <div *ngFor="let produto of produtos" class="col-sm-6 col-xs-12" >
+      
+      <mt-produto [produto]="produto"></mt-produto>
+      
+    </div>
+   
+
+
+  </div>
+
+
+
+</section>

@@ -11,6 +11,7 @@ import { HeaderComponent } from './header/header.component';
 import { AboutComponent } from './about/about.component';
 import { ProdutosComponent } from './produtos/produtos.component';
 import { ProdutoComponent } from './produtos/produto/produto.component';
+import { ProdutosService } from './produtos/produtos.service';
 
 
 
@@ -21,14 +22,14 @@ import { ProdutoComponent } from './produtos/produto/produto.component';
     HeaderComponent,
     AboutComponent,
     ProdutosComponent,
-    ProdutoComponent
+    ProdutoComponent,
   ],
   imports: [
     BrowserModule,
     HttpModule,
     RouterModule.forRoot(ROUTES)
   ],
-  providers: [],
+  providers: [ProdutosService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

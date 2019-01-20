@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Produto } from 'app/model/produto.model';
+import { ProdutosService } from './produtos.service';
+
+
 
 @Component({
   selector: 'mt-produtos',
@@ -8,26 +11,19 @@ import { Produto } from 'app/model/produto.model';
 export class ProdutosComponent implements OnInit {
 
 
-  produtos: Produto[] = [
+  produtos: Produto[] 
+  
 
-    {
-      id: "bread-bakery",
-      nome: "Bread & Bakery",
-      categoria: "Bakery",
-      imagePath: "assets/img/restaurants/breadbakery.png"
-    },
-    {
-      id: "burger-house",
-      nome: "Burger House",
-      categoria: "Hamburgers",
-      imagePath: "assets/img/restaurants/burgerhouse.png"
-    },
+  constructor(private produtosService: ProdutosService ) { 
 
-  ]
 
-  constructor() { }
+
+  }
 
   ngOnInit() {
+
+    this.produtosService.getTodosProdutos().subscribe(produtos => this.produtos  = produtos);
+    
   }
 
 }

@@ -1,0 +1,1 @@
+export const VENDAS_PUC_API = 'http://localhost:8080';
