@@ -26,6 +26,11 @@ export class ProdutosService {
     }
 
    
+    avaliacoesDosprodutos(id: string): Observable<Produto>{
+        return this.http.get(`${VENDAS_PUC_API}/produtos/${id}/avaliacoes`)
+        .map(response => response.json())
+        .catch(ErrorHandler.handlerError)
+    }
     
 
 

@@ -1,11 +1,8 @@
-
-
-
 <section class="content" style="margin-top: 25px">
 
 
   <div class="row">
-  
+
     <div class="col-md-9 col-xs-12">
 
       <div class="box box-solid">
@@ -17,7 +14,7 @@
         <!-- /.box-header -->
         <div class="box-body">
           <div class="col-sm-3 col-xs-12">
-            <img class="box-img-detail" src="assets/img/restaurants/breadbakery.png" />
+            <img class="box-img-detail" src="http://localhost:8080/imagens/produtos/whisky-johnnie-walker-black-label_id1.jpg" />
           </div>
 
           <dl class="col-sm-9 col-xs-12">
@@ -29,98 +26,36 @@
             <dd>Funciona de segunda à sexta, de 8h às 23h</dd>
           </dl>
 
-          <a class=""><i class="fa fa-plus-circle"></i> Adicionar</a>
+          <div class="row">
 
+            <div class="col-md-8 col-md-4">
+              <button type="button" class="btn btn-primary">Comprar</button>
+            </div>
+          </div>
+
+        </div>
+        <div class="box-footer detail-footer">
+          <a class="pull-left " [routerLink]="['descricao']" routerLinkActive="detail-active">
+            Descrição
+          </a>
+          <a class="pull-right " [routerLink]="['avaliacao']" routerLinkActive="detail-active">
+            Avaliações
+          </a>
         </div>
 
       </div>
 
     </div>
-
 
     <div class="col-md-3 col-xs-12">
 
       <mt-carrinho></mt-carrinho>
     </div>
 
+    <div class="row">
+      <router-outlet></router-outlet>
+    </div>
+
   </div>
 
-
-  <div class="row">
-    <div class="col-xs-12 col-sm-6">
-
-      <div class="box box-solid">
-        <div class="box-header with-border">
-          <span class="review-score pull-right"><i class="fa fa-star"></i> 4.5</span>
-          <div class="user-block">
-            <img alt="User Image" class="img-circle" src="assets/img/reactions/loved.png">
-            <span class="username">Julia</span>
-            <span class="description">23/01/2017</span>
-          </div>
-        </div>
-
-        <div class="box-body">
-          <p>Tudo muito bom, entrega no tempo certo</p>
-        </div>
-      </div>
-
-    </div>
-    <div class="col-xs-12 col-sm-6">
-
-      <div class="box box-solid">
-        <div class="box-header with-border">
-          <span class="review-score pull-right"><i class="fa fa-star"></i> 3</span>
-          <div class="user-block">
-            <img alt="User Image" class="img-circle" src="assets/img/reactions/soso.png">
-
-            <span class="username">Aline</span>
-            <span class="description">12/12/2016</span>
-          </div>
-        </div>
-
-        <div class="box-body">
-          <p>NÃO recomendo. O recheio é só um creme, não tem camarão e nem carne</p>
-        </div>
-      </div>
-
-    </div>
-    <div class="col-xs-12 col-sm-6">
-
-      <div class="box box-solid">
-        <div class="box-header with-border">
-          <span class="review-score pull-right"><i class="fa fa-star"></i> 2</span>
-          <div class="user-block">
-
-            <img alt="User Image" class="img-circle" src="assets/img/reactions/pissed.png">
-            <span class="username">Renata</span>
-            <span class="description">12/12/2016</span>
-          </div>
-        </div>
-
-        <div class="box-body">
-          <p>Não foi muito agradável ao nosso paladar, e eu e meu esposo no outro dia passamos super mal. Pode até ter
-            sido outra coisa, mas...</p>
-        </div>
-      </div>
-
-    </div>
-    <div class="col-xs-12 col-sm-6">
-
-      <div class="box box-solid">
-        <div class="box-header with-border">
-          <span class="review-score pull-right"><i class="fa fa-star"></i> 5</span>
-          <div class="user-block">
-            <img alt="User Image" class="img-circle" src="assets/img/reactions/loved.png">
-            <span class="username">Renata</span>
-            <span class="description">12/12/2016</span>
-          </div>
-        </div>
-
-        <div class="box-body">
-          <p>Nunca deixou na mão, comida sempre deliciosa.</p>
-        </div>
-      </div>
-
-    </div>
-  </div>
 </section>

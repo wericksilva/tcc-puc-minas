@@ -14,6 +14,8 @@ import { ProdutoComponent } from './produtos/produto/produto.component';
 import { ProdutosService } from './produtos/produtos.service';
 import { ProdutoDetalheComponent } from './produto-detalhe/produto-detalhe.component';
 import { CarrinhoComponent } from './produto-detalhe/carrinho/carrinho.component';
+import { AvaliacaoComponent } from './produto-detalhe/avaliacao/avaliacao.component';
+import { DescricaoComponent } from './produto-detalhe/descricao/descricao.component';
 
 
 
@@ -27,6 +29,8 @@ import { CarrinhoComponent } from './produto-detalhe/carrinho/carrinho.component
     ProdutoComponent,
     ProdutoDetalheComponent,
     CarrinhoComponent,
+    AvaliacaoComponent,
+    DescricaoComponent,
   ],
   imports: [
     BrowserModule,
