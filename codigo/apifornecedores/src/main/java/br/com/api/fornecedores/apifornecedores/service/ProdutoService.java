@@ -21,8 +21,6 @@ public class ProdutoService {
 	}
 
 	
-
-
 	public Produto buscarPoId(Long id) {
 		return produtoRepository.findById(id).orElse(null);
 	}

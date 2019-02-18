@@ -9,15 +9,14 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.api.fornecedores.apifornecedores.model.Produto;
 import br.com.api.fornecedores.apifornecedores.service.ProdutoService;
 
 @RestController
-@RequestMapping("/produtos")
-@CrossOrigin(origins = "*")
+@RequestMapping(value = "/produtos")
+@CrossOrigin
 public class ProdutoController {
 
 	@Autowired
@@ -26,7 +25,6 @@ public class ProdutoController {
 	
 		
 	@GetMapping
-	@ResponseBody
 	public ResponseEntity<List<Produto>> listar() {
 		
 		return new ResponseEntity<>(produtoService.buscarTodos(), HttpStatus.OK);
