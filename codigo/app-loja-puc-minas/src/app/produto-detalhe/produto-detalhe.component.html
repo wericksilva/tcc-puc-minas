@@ -22,13 +22,13 @@
           <dl class="col-sm-9 col-xs-12">
               <dt>Valor</dt>
               <dd>{{produto?.preco}}</dd>
-            </dl>
+          </dl>
 
   
   
           <div class="pull-right" style="margin-right: 10px">
             <div>
-              <button style="width: 200px" type="button" [routerLink]="['/carrinho']"  class="btn btn-success">Comprar</button>
+              <button (click)="adicionarItem(produto)" style="width: 200px" type="button" [routerLink]="['/carrinho']"  class="btn btn-success">Comprar</button>
             </div>
           </div>
 

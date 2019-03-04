@@ -5,5 +5,5 @@ export interface Produto{
     nome: string
     categoria: string
     imagePath: string
-    
+    preco: number
 }

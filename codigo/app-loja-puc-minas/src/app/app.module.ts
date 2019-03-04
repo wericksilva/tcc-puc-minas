@@ -16,7 +16,7 @@ import { ProdutoDetalheComponent } from './produto-detalhe/produto-detalhe.compo
 import { CarrinhoComponent } from './produto-detalhe/carrinho/carrinho.component';
 import { AvaliacaoComponent } from './produto-detalhe/avaliacao/avaliacao.component';
 import { DescricaoComponent } from './produto-detalhe/descricao/descricao.component';
-
+import { CarrinhoService } from './produto-detalhe/carrinho/carrinho-service';
 
 
 @NgModule({
@@ -37,7 +37,7 @@ import { DescricaoComponent } from './produto-detalhe/descricao/descricao.compon
     HttpModule,
     RouterModule.forRoot(ROUTES)
   ],
-  providers: [ProdutosService],
+  providers: [ProdutosService, CarrinhoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
