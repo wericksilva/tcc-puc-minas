@@ -7,26 +7,6 @@ import { Produto } from 'app/model/produto.model';
 })
 export class HeaderComponent implements OnInit {
 
-
-  
-  produtos: Produto[] = [
-
-    {
-      id: "bread-bakery",
-      nome: "Bread & Bakery",
-      categoria: "Bakery",
-      imagePath: "assets/img/restaurants/breadbakery.png"
-    },
-    {
-      id: "burger-house",
-      nome: "Burger House",
-      categoria: "Hamburgers",
-      imagePath: "assets/img/restaurants/burgerhouse.png"
-    },
-
-  ]
-
-  
   @Input() texto: String
   
 
