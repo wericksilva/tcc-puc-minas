@@ -11,6 +11,7 @@ export class CarrinhoComponent implements OnInit {
 
   ngOnInit() {
 
+    
   }
 
   items() : any[]{
@@ -31,7 +32,11 @@ export class CarrinhoComponent implements OnInit {
   }
 
   adicionarItem(item: any){
+    console.log('ENCONTROU');
+    console.log(item);
+    console.log(this.items);
     this.carrinhoService.adicionarItem(item);
+    console.log(this.items);
   }
 
   somarQuantidade(item: any){

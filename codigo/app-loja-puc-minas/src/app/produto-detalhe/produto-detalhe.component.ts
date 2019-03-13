@@ -24,8 +24,9 @@ export class ProdutoDetalheComponent implements OnInit {
   }
     
 
-  adicionarItem(produto: any){
-    this.carrinhoService.adicionarItem(produto);
+  adicionarItem(produto: Produto){
+
+    this.carrinhoService.adicionarItem(this.produto);
   }
 a
 

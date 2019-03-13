@@ -8,7 +8,7 @@
         <div class="col-md-2">
           <a [routerLink]="['/']" routerLinkActive="router-link-active" class="navbar-brand">
             <span class="glyphicon glyphicon-tags" ></span>
-            <b>VENDAS PUC</b>
+            <b> VENDAS PUC</b>
           </a>
         </div>
 
@@ -31,7 +31,9 @@
 
         <div class="col-md-2">
           <a  [routerLink]="['/carrinho']">
-            <i style="color: white; margin-top: 10px; font-size: 30px" class="fa fa-shopping-cart"></i>
+            <i style="color: white; margin-top: 10px; font-size: 30px" class="fa fa-shopping-cart">
+                <span  style="background-color: teal; margin-bottom: 10px" class="badge badge-light">{{totalCarrinho()}}</span>
+            </i>
           </a>
         </div>
 

@@ -1,53 +1,58 @@
 <section class="content" style="margin-top: 35px;">
 
-    <div class="row ">
-<div class="box box-solid">
-    <div class="box-header">
-      <i class="fa fa-shopping-cart"></i>
+  <div class="row ">
+    <div class="box box-solid">
+      <div class="box-header">
+        <i class="fa fa-shopping-cart"></i>
 
-      <h3 class="box-title">Carrinho</h3>
-    </div>
-    <!-- /.box-header -->
-    <div class="box-body">
-
-      <div *ngIf="!items().length">
-        <p class="text-center">
-          Seu carrinho está vazio!
-        </p>
+        <h3 class="box-title">Carrinho</h3>
       </div>
-      
-        <div class="table-responsive"  *ngIf="items().length">
-            <table class="table">
-            <tbody>
-            <tr *ngFor="let item of items()">
-              <th>({{item.quantidade}}x) {{item.produto.nome}}</th>
+      <!-- /.box-header -->
+      <div class="box-body">
 
-              <td class="text-rigth">{{item.value() | currency: 'BRL' : true}}</td>
-             
-              <td class="text-rigth">
-                <a (click)="somarQuantidade(item)" class="btn btn-sm sucess"><i class="fa fa-plus"></i></a>
-                <a (click)="diminuirQuantidade(item)" class="btn btn-sm warning"><i class="fa fa-minus"></i></a>
-                <a (click)="removerItem(item)" class="btn btn-sm danger"><i class="fa fa-remove"></i></a>
-              </td>
-            </tr>
-           
-            <tr>
-              <th>Total:</th>
-
-              <td >{{total() | currency: 'BRL' : true}}</td>
-            </tr>
-          </tbody>
-        </table>
+        <div *ngIf="!items().length">
+          <p class="text-center">
+            Seu carrinho está vazio!
+          </p>
         </div>
-        
-    </div>
-    <div class="box-footer"  *ngIf="items().length">
-      <div class="pull-right">
-        <button (click)="limpar()" type="button" class="btn btn-danger"><i class="fa fa-trash"></i> Limpar</button>
-        <a href="/" class="btn btn-success"><i class="fa fa-credit-card"></i> Fechar Pedido</a>
+
+        <div class="table-responsive" *ngIf="items().length">
+          <table class="table">
+            <tbody>
+
+              <tr *ngFor="let item of items()">
+                <td>
+                  <span class="place-info-box-icon"><img style=" height: 77px; width: 120px;"
+                      [src]="item.produto.imagePath" /></span>
+                </td>
+                <td>({{item.quantidade}}x) {{item.produto.nome}}</td>
+
+                <td class="text-rigth">{{item.value() | currency: 'BRL' : true}}</td>
+
+                <td class="text-rigth">
+                  <a (click)="somarQuantidade(item)" class="btn btn-sm sucess"><i class="fa fa-plus"></i></a>
+                  <a (click)="diminuirQuantidade(item)" *ngIf="item.quantidade > 0" class="btn btn-sm warning"><i
+                      class="fa fa-minus"></i></a>
+                  <a (click)="removerItem(item)" class="btn btn-sm danger"><i class="fa fa-remove"></i></a>
+                </td>
+              </tr>
+
+              <tr style="font-size: 17px">
+                <th>Total:</th>
+                <td>{{total() | currency: 'BRL' : true}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+      <div class="box-footer" *ngIf="items().length">
+        <div class="pull-right">
+          <button (click)="limpar()" type="button" class="btn btn-danger"><i class="fa fa-trash"></i> Limpar</button>
+          <a href="/" class="btn btn-success"><i class="fa fa-credit-card"></i> Fechar Pedido</a>
+        </div>
       </div>
     </div>
-</div>
 
-</div>
+  </div>
 </section>
