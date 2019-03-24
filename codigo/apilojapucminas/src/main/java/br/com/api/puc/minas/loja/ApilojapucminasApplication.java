@@ -8,6 +8,9 @@ public class ApilojapucminasApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(ApilojapucminasApplication.class, args);
+
+		
+		
 	}
 
 }

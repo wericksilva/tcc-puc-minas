@@ -4,6 +4,7 @@ package br.com.api.puc.minas.loja.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -11,7 +12,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
 
+import br.com.api.puc.minas.loja.email.EnvioEmail;
 import br.com.api.puc.minas.loja.modelo.Produto;
 
 
@@ -21,22 +24,43 @@ import br.com.api.puc.minas.loja.modelo.Produto;
 public class ProdutoController {
 	
 	
+	@Autowired
+	EnvioEmail envioEmail;
+	
 	@GetMapping
 	@ResponseBody
 	public ResponseEntity<List<Produto>> listar() {
 			
+		Produto produto = new Produto();
+		produto.setId(1L);
+		//produto.setCategoria(new Categoria());
+		produto.setImagePath("tetse");
+		produto.setNome("TESTE");
 		
 		ArrayList<Produto> listaProdutos = new ArrayList<Produto>();
+		listaProdutos.add(produto);
 		
-		listaProdutos.add(new Produto(1L,
-				"Bread & Bakery",
-				"Bakery",
-				"assets/img/restaurants/breadbakery.png"));
 		
-		listaProdutos.add(new Produto( 2L,
-			     "Burger House",
-			      "Hamburgers",
-			     "assets/img/restaurants/burgerhouse.png"));
+		
+		RestTemplate restTemplate = new RestTemplate(); //1
+		String uri = "http://localhost:9000/produtos";
+		
+		
+		
+		ResponseEntity<String> response
+		  = restTemplate.getForEntity(uri, String.class); //3
+		
+	
+		
+		
+
+				
+		
+		
+		
+		//envioEmail.enviar("werickzim@gmail.com", "teste", "teste de envio de email OK");
+		
+		
 		
 		return new ResponseEntity<>(listaProdutos, HttpStatus.OK);
 		
