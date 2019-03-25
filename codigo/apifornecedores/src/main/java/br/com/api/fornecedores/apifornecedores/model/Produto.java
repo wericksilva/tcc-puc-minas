@@ -30,6 +30,8 @@ public class Produto {
 		
 	private String descricao;
 	
+	private String imagePath;
+
 	@OneToOne
 	private Categoria categoria;
 	
@@ -89,7 +91,6 @@ public class Produto {
 		this.imagePath = imagePath;
 	}
 
-	private String imagePath;
 
 	public Categoria getCategoria() {
 		return categoria;

@@ -2,13 +2,15 @@ package br.com.api.puc.minas.loja.modelo;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
 @Entity
 public class Usuario {
@@ -23,8 +25,8 @@ public class Usuario {
 	
 	private String senha;
 	
-	@JsonManagedReference
-	@OneToMany(mappedBy="usuario")
+	@JsonInclude(JsonInclude.Include.NON_EMPTY)
+	@OneToMany(mappedBy="id",fetch=FetchType.EAGER, cascade = CascadeType.ALL)
 	private List<Compras> compras;
 
 	

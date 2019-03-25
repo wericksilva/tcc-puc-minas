@@ -1,5 +1,6 @@
 package br.com.api.puc.minas.loja.modelo;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -8,6 +9,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 public class Produto {
@@ -16,9 +21,17 @@ public class Produto {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	private String nome;
 	
-	private String imagePath;
+	private String nome;
+
+	@Temporal(TemporalType.DATE)
+	private Date dataValidade;
+
+	private Double preco;
+	
+	private Integer quantidade;
+		
+	private String descricao;
 	
 	@OneToOne
 	private Categoria categoria;
@@ -26,16 +39,18 @@ public class Produto {
 	@OneToOne
 	private Fornecedor fornecedor;
 	
-	@ManyToMany
-	private List<Compras> compras;
+
 	
+	private String imagePath;
 	
-	public List<Compras> getCompras() {
-		return compras;
+
+	public String getImagePath() {
+		return imagePath;
 	}
-	public void setCompras(List<Compras> compras) {
-		this.compras = compras;
+	public void setImagePath(String imagePath) {
+		this.imagePath = imagePath;
 	}
+	
 	public Fornecedor getFornecedor() {
 		return fornecedor;
 	}
@@ -60,17 +75,31 @@ public class Produto {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	
-	
+	public Date getDataValidade() {
+		return dataValidade;
+	}
+	public void setDataValidade(Date dataValidade) {
+		this.dataValidade = dataValidade;
+	}
+	public Double getPreco() {
+		return preco;
+	}
+	public void setPreco(Double preco) {
+		this.preco = preco;
+	}
+	public Integer getQuantidade() {
+		return quantidade;
+	}
+	public void setQuantidade(Integer quantidade) {
+		this.quantidade = quantidade;
+	}
+	public String getDescricao() {
+		return descricao;
+	}
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
 	
 
-
-	public String getImagePath() {
-		return imagePath;
-	}
-	public void setImagePath(String imagePath) {
-		this.imagePath = imagePath;
-	}
-	
 	
 }
