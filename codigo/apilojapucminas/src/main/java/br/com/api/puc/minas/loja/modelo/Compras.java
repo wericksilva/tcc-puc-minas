@@ -3,6 +3,7 @@ package br.com.api.puc.minas.loja.modelo;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -16,7 +17,6 @@ import javax.persistence.TemporalType;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 public class Compras {
@@ -30,14 +30,13 @@ public class Compras {
 	
 	private Double valor;
 	
-	
-	@OneToOne
+	@JsonInclude(JsonInclude.Include.NON_EMPTY)
+	@OneToOne(fetch=FetchType.EAGER, cascade = CascadeType.ALL)
 	private StatusCompra statusCompra;
 	
 	@JsonBackReference
 	@ManyToOne
 	private Usuario usuario;
-	
 	
 	@ManyToMany
 	private List<Produto> produtos;

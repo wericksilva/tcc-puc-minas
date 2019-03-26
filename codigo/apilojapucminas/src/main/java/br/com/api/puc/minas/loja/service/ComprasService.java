@@ -21,6 +21,16 @@ public class ComprasService {
 	}
 
 	
+	public Compras salvar(Compras compra){
+		
+		Compras compraIncluida = comprasRepository.saveAndFlush(compra);
+		
+		
+		
+		return compraIncluida;
+	}
+	
+	
 	public Compras buscarPoId(Long id) {
 		return comprasRepository.findById(id).orElse(null);
 	}

@@ -1,18 +1,14 @@
 package br.com.api.puc.minas.loja.modelo;
 
 import java.util.Date;
-import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 public class Produto {
@@ -39,11 +35,17 @@ public class Produto {
 	@OneToOne
 	private Fornecedor fornecedor;
 	
-
+	private Integer codigo;
 	
 	private String imagePath;
 	
-
+	
+	public Integer getCodigo() {
+		return codigo;
+	}
+	public void setCodigo(Integer codigo) {
+		this.codigo = codigo;
+	}
 	public String getImagePath() {
 		return imagePath;
 	}

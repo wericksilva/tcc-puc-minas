@@ -13,10 +13,17 @@ public class Fornecedor {
 	private Long id;
 	
 	private String url;
+		
+	private String nome;
 	
-	private Boolean ativo;
+	public String getNome() {
+		return nome;
+	}
 
-	
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
 	public Long getId() {
 		return id;
 	}
@@ -33,14 +40,5 @@ public class Fornecedor {
 		this.url = url;
 	}
 
-	public Boolean getAtivo() {
-		return ativo;
-	}
-
-	public void setAtivo(Boolean ativo) {
-		this.ativo = ativo;
-	}
-	
-	
 	
 }
