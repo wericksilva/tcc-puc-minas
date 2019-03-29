@@ -29,6 +29,8 @@ public class Produto {
 		
 	private String descricao;
 	
+	private String imagePath;
+
 	@OneToOne
 	private Categoria categoria;
 	
@@ -36,9 +38,6 @@ public class Produto {
 	private Fornecedor fornecedor;
 	
 	private Integer codigo;
-	
-	private String imagePath;
-	
 	
 	public Integer getCodigo() {
 		return codigo;

@@ -1,7 +1,6 @@
 package br.com.api.puc.minas.loja.controller;
 
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,13 +8,14 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.RestTemplate;
 
 import br.com.api.puc.minas.loja.email.EnvioEmail;
 import br.com.api.puc.minas.loja.modelo.Produto;
+import br.com.api.puc.minas.loja.service.ProdutoService;
 
 
 @RestController
@@ -27,43 +27,13 @@ public class ProdutoController {
 	@Autowired
 	EnvioEmail envioEmail;
 	
+	@Autowired
+	ProdutoService produtoService;
+	
 	@GetMapping
 	@ResponseBody
 	public ResponseEntity<List<Produto>> listar() {
-			
-		Produto produto = new Produto();
-		produto.setId(1L);
-		//produto.setCategoria(new Categoria());
-		produto.setImagePath("tetse");
-		produto.setNome("TESTE");
-		
-		ArrayList<Produto> listaProdutos = new ArrayList<Produto>();
-		listaProdutos.add(produto);
-		
-		
-		
-		RestTemplate restTemplate = new RestTemplate(); //1
-		String uri = "http://localhost:9000/produtos";
-		
-		
-		
-		ResponseEntity<String> response
-		  = restTemplate.getForEntity(uri, String.class); //3
-		
-	
-		
-		
-
-				
-		
-		
-		
-		//envioEmail.enviar("werickzim@gmail.com", "teste", "teste de envio de email OK");
-		
-		
-		
-		return new ResponseEntity<>(listaProdutos, HttpStatus.OK);
-		
+		return new ResponseEntity<>(produtoService.buscarTodos(), HttpStatus.OK);
 	}
 /*
 	// End points
@@ -76,18 +46,18 @@ public class ProdutoController {
 		 return new ResponseEntity<Paciente>(pacienteIncluido, HttpStatus.OK);
 		
 	}
-	
+	*/
 	@GetMapping("/{id}")
-	public ResponseEntity<Paciente> buscar(@PathVariable Long id) {
-		Paciente paciente = pacienteService.buscarPoId(id);
+	public ResponseEntity<Produto> buscar(@PathVariable Long id) {
+		Produto Produto = produtoService.buscarPoId(id);
 		
-		if (paciente == null) {
+		if (Produto == null) {
 			return ResponseEntity.notFound().build();
 		}
 		
-		return ResponseEntity.ok(paciente);
+		return ResponseEntity.ok(Produto);
 	}
-	
+	/*
 	@PutMapping("/{id}")
 	public ResponseEntity<Paciente> atualizar(@PathVariable Long id, 
 			@Valid @RequestBody Paciente paciente) {

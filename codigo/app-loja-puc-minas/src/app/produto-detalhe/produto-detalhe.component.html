@@ -17,7 +17,7 @@
           </dl>
           <dl class="col-sm-9 col-xs-12">
             <dt>Categoria</dt>
-            <dd>Bebidas</dd>
+            <dd>{{produto?.categoria.nome}}</dd>
           </dl>
           <dl class="col-sm-9 col-xs-12">
               <dt>Valor</dt>
@@ -36,6 +36,7 @@
         </div>
       </div>
     </div>
+   
     <div class="row box-footer detail-footer">
       <a class="pull-left " [routerLink]="['descricao']" routerLinkActive="detail-active">
         Descrição
