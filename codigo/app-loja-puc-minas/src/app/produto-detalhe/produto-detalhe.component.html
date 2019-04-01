@@ -17,17 +17,18 @@
           </dl>
           <dl class="col-sm-9 col-xs-12">
             <dt>Categoria</dt>
-            <dd>Bebidas</dd>
+            <dd>{{produto?.categoria.nome}}</dd>
           </dl>
           <dl class="col-sm-9 col-xs-12">
               <dt>Valor</dt>
-              <dd>{{produto?.preco}}</dd>
+              <dd>{{produto?.preco | currency: 'BRL' : true}}</dd>
           </dl>
 
   
   
           <div class="pull-right" style="margin-right: 10px">
             <div>
+              <button (click)="adicionarItem(produto)" style="width: 200px" type="button"  class="btn btn-info">Adicionar</button>
               <button (click)="adicionarItem(produto)" style="width: 200px" type="button" [routerLink]="['/carrinho']"  class="btn btn-success">Comprar</button>
             </div>
           </div>
@@ -35,6 +36,7 @@
         </div>
       </div>
     </div>
+   
     <div class="row box-footer detail-footer">
       <a class="pull-left " [routerLink]="['descricao']" routerLinkActive="detail-active">
         Descrição

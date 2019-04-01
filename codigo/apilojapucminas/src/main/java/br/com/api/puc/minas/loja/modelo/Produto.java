@@ -1,25 +1,68 @@
 package br.com.api.puc.minas.loja.modelo;
 
+import java.util.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+@Entity
 public class Produto {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
+	
 	private String nome;
-	private String categoria;
-	private String imagePath;
+
+	@Temporal(TemporalType.DATE)
+	private Date dataValidade;
+
+	private Double preco;
 	
-	
-	
-	public Produto() {
+	private Integer quantidade;
 		
+	private String descricao;
+	
+	private String imagePath;
+
+	@OneToOne
+	private Categoria categoria;
+	
+	@OneToOne
+	private Fornecedor fornecedor;
+	
+	private Integer codigo;
+	
+	public Integer getCodigo() {
+		return codigo;
+	}
+	public void setCodigo(Integer codigo) {
+		this.codigo = codigo;
+	}
+	public String getImagePath() {
+		return imagePath;
+	}
+	public void setImagePath(String imagePath) {
+		this.imagePath = imagePath;
 	}
 	
-	
-	public Produto(Long id, String nome, String categoria, String imagePath) {
-		super();
-		this.id = id;
-		this.nome = nome;
+	public Fornecedor getFornecedor() {
+		return fornecedor;
+	}
+	public void setFornecedor(Fornecedor fornecedor) {
+		this.fornecedor = fornecedor;
+	}
+	public Categoria getCategoria() {
+		return categoria;
+	}
+	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;
-		this.imagePath = imagePath;
 	}
 	public Long getId() {
 		return id;
@@ -33,18 +76,31 @@ public class Produto {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public String getCategoria() {
-		return categoria;
+	public Date getDataValidade() {
+		return dataValidade;
 	}
-	public void setCategoria(String categoria) {
-		this.categoria = categoria;
+	public void setDataValidade(Date dataValidade) {
+		this.dataValidade = dataValidade;
 	}
-	public String getImagePath() {
-		return imagePath;
+	public Double getPreco() {
+		return preco;
 	}
-	public void setImagePath(String imagePath) {
-		this.imagePath = imagePath;
+	public void setPreco(Double preco) {
+		this.preco = preco;
+	}
+	public Integer getQuantidade() {
+		return quantidade;
+	}
+	public void setQuantidade(Integer quantidade) {
+		this.quantidade = quantidade;
+	}
+	public String getDescricao() {
+		return descricao;
+	}
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
 	}
 	
+
 	
 }

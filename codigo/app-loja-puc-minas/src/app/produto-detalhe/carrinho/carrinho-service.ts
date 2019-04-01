@@ -11,25 +11,28 @@ export class CarrinhoService {
 
     adicionarItem(produto: Produto){
 
-        let encontradoProduto = this.items.find((produto) => produto.produto.id === produto.produto.id);
+        let idProduto = produto.id;
+        let encontradoProduto = this.items.find(produto => produto.produto.id == idProduto);
         if(encontradoProduto){
-
             encontradoProduto.quantidade = encontradoProduto.quantidade + 1;
         }else{
             this.items.push(new CarrinhoProduto(produto))
         }
 
+
+       
+
     }
 
-    somarQuantidade(produto: Produto){
-        let encontradoProduto = this.items.find((produto) => produto.produto.id === produto.produto.id);
+    somarQuantidade(carrinhoProduto: CarrinhoProduto){
+        let encontradoProduto = this.items.find((produto) => produto.produto.id === carrinhoProduto.produto.id);      
         if(encontradoProduto){
             encontradoProduto.quantidade = encontradoProduto.quantidade + 1;
         }
     }
 
-    diminuirQuantidade(produto: Produto){
-        let encontradoProduto = this.items.find((produto) => produto.produto.id === produto.produto.id);
+    diminuirQuantidade(carrinhoProduto: CarrinhoProduto){
+        let encontradoProduto = this.items.find((produto) => produto.produto.id === carrinhoProduto.produto.id);
         if(encontradoProduto){
             encontradoProduto.quantidade = encontradoProduto.quantidade - 1;
         }

@@ -16,7 +16,7 @@ export class ProdutoDetalheComponent implements OnInit {
 
   ngOnInit() {
 
-    console.log(this.route.snapshot.params['id']);
+    
 
     this.produtosService.getProdutoPorId(this.route.snapshot.params['id'])
     .subscribe(produto => this.produto = produto)
@@ -24,9 +24,10 @@ export class ProdutoDetalheComponent implements OnInit {
   }
     
 
-  adicionarItem(produto: any){
-    this.carrinhoService.adicionarItem(produto);
+  adicionarItem(produto: Produto){
+
+    this.carrinhoService.adicionarItem(this.produto);
   }
-a
+
 
 }

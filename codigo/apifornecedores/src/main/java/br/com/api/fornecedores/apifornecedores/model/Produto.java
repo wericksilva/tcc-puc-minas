@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -29,6 +30,10 @@ public class Produto {
 		
 	private String descricao;
 	
+	private String imagePath;
+
+	@OneToOne
+	private Categoria categoria;
 	
 	public Long getId() {
 		return id;
@@ -86,7 +91,14 @@ public class Produto {
 		this.imagePath = imagePath;
 	}
 
-	private String imagePath;
+
+	public Categoria getCategoria() {
+		return categoria;
+	}
+
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
+	}
 
 	
 	

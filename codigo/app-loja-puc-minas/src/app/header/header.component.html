@@ -8,30 +8,36 @@
         <div class="col-md-2">
           <a [routerLink]="['/']" routerLinkActive="router-link-active" class="navbar-brand">
             <span class="glyphicon glyphicon-tags" ></span>
-            <b>VENDAS PUC</b>
+            <b> VENDAS PUC</b>
           </a>
         </div>
 
 
 
         <div class="col-md-6">
-          <form style="margin-top: 8px">
+          <form [formGroup]="searchForm" style="margin-top: 8px">
            
-              <div class="input-group">
-                <input type="text" class="form-control" placeholder="Pesquise aqui...">
+              <div class="form-group input-group">
+                <input  formControlName="searchControl" type="text" class="form-control" placeholder="Pesquise aqui...">
                 <span class="input-group-btn">
-                  <button [routerLink]="['/produtos']" class="btn btn-default" type="submit">
+                  <a  (click)="pesquisar()"  class="btn btn-default" type="submit">
                     <i class="glyphicon glyphicon-search"></i>
-                  </button>
+                  </a>
                 </span>
               </div><!-- /input-group -->
            
           </form>
         </div>
 
+
+          
+          
+        
         <div class="col-md-2">
-          <a  [routerLink]="['/carrinho']">
-            <i style="color: white; margin-top: 10px; font-size: 30px" class="fa fa-shopping-cart"></i>
+          <a  class="pull-right" [routerLink]="['/carrinho']">
+            <i style="color: white; margin-top: 10px; font-size: 30px" class="fa fa-shopping-cart">
+                <span  style="background-color: teal; margin-bottom: 10px" class="badge badge-light">{{totalCarrinho()}}</span>
+            </i>
           </a>
         </div>
 
