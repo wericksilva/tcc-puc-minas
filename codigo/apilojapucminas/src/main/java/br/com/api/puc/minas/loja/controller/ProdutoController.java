@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -30,10 +31,15 @@ public class ProdutoController {
 	@Autowired
 	ProdutoService produtoService;
 	
-	@GetMapping
+	@GetMapping(params = "q")
 	@ResponseBody
-	public ResponseEntity<List<Produto>> listar() {
-		return new ResponseEntity<>(produtoService.buscarTodos(), HttpStatus.OK);
+	public ResponseEntity<List<Produto>> listar(@RequestParam("q") String query) {
+		
+		if(query.equals("")) {
+			return new ResponseEntity<>(produtoService.buscarTodos(), HttpStatus.OK);
+		}
+		
+		return new ResponseEntity<>(produtoService.buscarTodosQuery(query), HttpStatus.OK);
 	}
 /*
 	// End points

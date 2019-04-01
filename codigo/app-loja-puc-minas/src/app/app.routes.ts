@@ -1,4 +1,5 @@
-import {Routes} from '@angular/router'
+import { RouterModule, Routes } from '@angular/router';
+import { NgModule } from '@angular/core';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { ProdutosComponent } from './produtos/produtos.component';
@@ -14,7 +15,8 @@ export const ROUTES : Routes = [
     {path:  'about', component: AboutComponent},
     {path:  'carrinho', component: CarrinhoComponent},
     {path:  'produtos', component: ProdutosComponent},
-    {path:  'produtos/:id', component: ProdutoDetalheComponent,
+    {path:  'produtos/:nome', component: ProdutosComponent},
+    {path:  'produto/:id', component: ProdutoDetalheComponent,
 
     
     children: [
@@ -24,6 +26,13 @@ export const ROUTES : Routes = [
     ]    
     }
     
-]
+];
 
+@NgModule({
+    imports: [RouterModule.forRoot(ROUTES)],
+    exports: [RouterModule]
+  })
 
+export class AppRoutingModule {
+
+}

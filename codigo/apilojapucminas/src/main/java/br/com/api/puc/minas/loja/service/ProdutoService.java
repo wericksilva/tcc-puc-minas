@@ -19,6 +19,10 @@ public class ProdutoService {
 		
 		return produtoRepository.findAll();
 	}
+	
+	public List<Produto> buscarTodosQuery(String query) {
+		return produtoRepository.findByNomeContaining(query);
+}
 
 	
 	public Produto buscarPoId(Long id) {

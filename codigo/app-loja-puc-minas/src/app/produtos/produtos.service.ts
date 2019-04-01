@@ -21,7 +21,12 @@ export class ProdutosService {
         
     }
 
-     
+    
+    getTodosProdutosNome(search: string = ""): Observable<Produto[]> {
+        return this.http.get(`${API_LOJA}/produtos/`, {params: {q: search}})
+        .map(response => response.json())
+    }
+
     getTodosProdutos():  Observable<Produto []> {
        
         return this.http.get(`${API_LOJA}/produtos`)
@@ -40,7 +45,6 @@ export class ProdutosService {
     }
 
     getProdutoPorId(id: Number):  Observable<Produto> {
-        console.log(API_LOJA);
         return this.http.get(`${API_LOJA}/produtos/${id}`)
         .map(response => response.json())
         ._catch(ErrorHandler.handlerError);

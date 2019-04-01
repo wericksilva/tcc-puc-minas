@@ -2,8 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
-import {ROUTES} from './app.routes'
-
+import {ROUTES, AppRoutingModule} from './app.routes'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -34,7 +34,10 @@ import { CarrinhoService } from './produto-detalhe/carrinho/carrinho-service';
   ],
   imports: [
     BrowserModule,
+    AppRoutingModule,
     HttpModule,
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(ROUTES)
   ],
   providers: [ProdutosService, CarrinhoService, {provide: LOCALE_ID, useValue: 'pt-BR'}],
