@@ -38,7 +38,9 @@
     </div>
    
     <div class="row box-footer detail-footer">
-      <a class="pull-left " [routerLink]="['descricao']" routerLinkActive="detail-active">
+        
+      
+      <a class="pull-left " [routerLink]="['descricao']"  [queryParams]="{descricao: produto?.descricao}" routerLinkActive="detail-active">
         Descrição
       </a>
       <a class="pull-right " [routerLink]="['avaliacao']" routerLinkActive="detail-active">

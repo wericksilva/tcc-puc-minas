@@ -1,6 +1,7 @@
 package br.com.api.puc.minas.loja.service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,11 +18,17 @@ public class ProdutoService {
 	
 	public List<Produto> buscarTodos() {
 		
-		return produtoRepository.findAll();
+		return produtoRepository.findAll().stream()
+		        .filter((Produto p) -> p.getAtivo() == true)
+		        .collect(Collectors.toList());
 	}
 	
 	public List<Produto> buscarTodosQuery(String query) {
-		return produtoRepository.findByNomeContaining(query);
+		
+
+		return produtoRepository.findByNomeContaining(query).stream()
+		        .filter((Produto p) -> p.getAtivo() == true)
+		        .collect(Collectors.toList());
 }
 
 	

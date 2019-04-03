@@ -11,18 +11,23 @@ export class DescricaoComponent implements OnInit {
 
   produto: Produto
 
+  descricao: String
+
   constructor(private produtosService: ProdutosService, private route: ActivatedRoute,) { }
 
   ngOnInit() {
 
    
-    var sub = this.route.params.subscribe(params => {
-      let id = params['id'];
-      console.log(id);
-    });
-    this.produtosService.getProdutoPorId(this.route.snapshot.params['id'])
-    .subscribe(produto => this.produto = produto)
+    this.route.queryParams.subscribe(params => {
+      console.log('PARAMETRO');
+      console.log(params);
+
+      if (params['descricao']) {
+        this.descricao = params['descricao']
+      }
     
+    });
   }
+
 
 }
