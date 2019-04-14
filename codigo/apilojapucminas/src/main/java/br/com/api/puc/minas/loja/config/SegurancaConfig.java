@@ -36,8 +36,7 @@ public class SegurancaConfig extends WebSecurityConfigurerAdapter {
 	            .ignoring()
 	            	.antMatchers("/usuario")
 	            	.antMatchers("/imagens/**")
-	                .antMatchers("/produtos**")
-	                .antMatchers("/produtos/**")
+	                .antMatchers(HttpMethod.GET,"/produtos/**")
 	                .antMatchers("/imagens/produtos/**")
 	                .antMatchers(HttpMethod.POST, "/login");
 	    }

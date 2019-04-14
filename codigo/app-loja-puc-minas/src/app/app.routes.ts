@@ -20,7 +20,7 @@ export const ROUTES : Routes = [
 
     
     children: [
-        {path: '', redirectTo: 'descricao', pathMatch: 'full'},
+       // {path: '', redirectTo: 'descricao', pathMatch: 'full'},
         {path: 'descricao', component: DescricaoComponent},
         {path: 'avaliacao', component: AvaliacaoComponent}
     ]    

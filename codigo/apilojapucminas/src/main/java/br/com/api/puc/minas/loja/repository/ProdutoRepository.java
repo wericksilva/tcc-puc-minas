@@ -10,6 +10,7 @@ import br.com.api.puc.minas.loja.modelo.Produto;
 @Repository
 public interface ProdutoRepository extends JpaRepository<Produto, Long> {
 
+	public List<Produto> findByAtivo(Boolean ativo);
 	public List<Produto> findByNomeContaining(String nome);
 
 }

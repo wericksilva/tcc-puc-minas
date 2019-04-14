@@ -79,7 +79,7 @@ public class CompraController {
 		return ResponseEntity.ok(existente);
 	}
 
-	@SuppressWarnings("null")
+
 	private String mensagemEmailStatusCompra(Compras compras) {
 
 		StringBuilder mensagem = new StringBuilder();
