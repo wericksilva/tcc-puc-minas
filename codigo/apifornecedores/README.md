@@ -4,4 +4,4 @@ Execute o comando mvn clean install (MAVEN)  na raiz do projeto para instalar as
 
 ## Iniciando Serviço
 
-Execute o comando `mvn spring-boot:run` para iniciar o serviço que será consumido por api `REST` no endereço  `http://localhost:8080/`.
+Execute o comando `mvn spring-boot:run` para iniciar o serviço que será consumido por api `REST` no endereço  `http://localhost:9000/`.
