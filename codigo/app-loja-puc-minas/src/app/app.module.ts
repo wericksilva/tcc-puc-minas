@@ -17,6 +17,7 @@ import { CarrinhoComponent } from './produto-detalhe/carrinho/carrinho.component
 import { AvaliacaoComponent } from './produto-detalhe/avaliacao/avaliacao.component';
 import { DescricaoComponent } from './produto-detalhe/descricao/descricao.component';
 import { CarrinhoService } from './produto-detalhe/carrinho/carrinho-service';
+import { LoginComponent } from './security/login/login.component';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { CarrinhoService } from './produto-detalhe/carrinho/carrinho-service';
     CarrinhoComponent,
     AvaliacaoComponent,
     DescricaoComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
