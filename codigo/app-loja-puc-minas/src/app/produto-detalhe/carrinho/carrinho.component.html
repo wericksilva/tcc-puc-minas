@@ -49,7 +49,7 @@
       <div class="box-footer" *ngIf="items().length">
         <div class="pull-right">
           <button (click)="limpar()" type="button" class="btn btn-danger"><i class="fa fa-trash"></i> Limpar</button>
-          <a href="/" class="btn btn-success"><i class="fa fa-credit-card"></i> Fechar Pedido</a>
+          <a [routerLink]="['/login']" class="btn btn-success"><i class="fa fa-credit-card"></i> Fechar Pedido</a>
         </div>
       </div>
     </div>
