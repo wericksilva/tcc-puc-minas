@@ -30,7 +30,7 @@ export class ProdutosComponent implements OnInit {
         subscribe(produtos => this.produtos  = produtos);    
       }
       else{
-        this.produtosService.getTodosProdutosNome("").
+        this.produtosService.getTodosProdutos().
         subscribe(produtos => this.produtos  = produtos);  
       }
     });

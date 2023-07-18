@@ -1,20 +1,17 @@
 package br.com.api.puc.minas.loja.config;
 
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.crypto.password.NoOpPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
-import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
-@EnableWebSecurity
-@EnableAuthorizationServer
-@EnableResourceServer
+@Configuration
+@EnableWebMvc
 public class SegurancaConfig extends WebSecurityConfigurerAdapter {
 	
 	@Bean
@@ -28,26 +25,22 @@ public class SegurancaConfig extends WebSecurityConfigurerAdapter {
 		auth.inMemoryAuthentication().withUser("werick").password("123").roles("ADMIN");
 	}
 	
-	
+	 @Override
+	  protected void configure(HttpSecurity httpSecurity) throws Exception {    
+	      httpSecurity
+	        .authorizeRequests()
+	        .antMatchers(HttpMethod.OPTIONS, "/**").permitAll();
+	  }
+	 
 	 @Override
 	    public void configure(WebSecurity webSecurity) throws Exception
 	    {
 	        webSecurity
 	            .ignoring()
-	            	.antMatchers("/usuario")
-	            	.antMatchers("/imagens/**")
-	                .antMatchers(HttpMethod.GET,"/produtos/**")
-	                .antMatchers("/imagens/produtos/**")
-	                .antMatchers(HttpMethod.POST, "/login");
+	            	.antMatchers("/**");
 	    }
 
+	 
 	   
-
-	
-	
-	@Bean
-	public PasswordEncoder passwordEncoder() {
-		return NoOpPasswordEncoder.getInstance();
-	}
 
 }
